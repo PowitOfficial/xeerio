@@ -1,4 +1,4 @@
-![xeerio][thumbnail.jpg]
+![xeerio](Banner.png)
 # Xeerio - Namechecker
 > Original website: [xeerio.com](https://www.xeerio.com)    
 
