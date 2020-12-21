@@ -1,0 +1,124 @@
+/* Main styling */
+
+/* Fonts */
+@import url("fonts.css");
+
+/* Colors */
+@import url("colors.css");
+
+/* Reset defaults */
+@import url("reset.css");
+
+/* Styling */
+body {
+   font-family: "Source Sans Pro";
+   background-color: var(--white);
+}
+
+.container {
+    opacity: 0;
+}
+
+/* Media query - mobile */
+@media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 30px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 25px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    h1 {
+      font-size: 46px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    h3 {
+        font-size: 36px;
+    }
+
+    p {
+        font-size: 19px;
+    }
+}
+
+/* Heading */
+h1 {
+   font-weight: 700;
+   color: var(--black);
+}
+
+h2 {
+    font-weight: 700;
+    color: var(--black);
+}
+
+h3 {
+    font-weight: 700;
+    color: white;
+}
+
+p {
+   font-weight: normal;
+   color: var(--paragraph);
+}
+
+a {
+    text-decoration: none;
+}
+
+.button {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--black);
+    padding: 14px 26px 13px 26px;
+    letter-spacing: .5px;
+    border-radius: 5px;
+
+    display: inline-block;
+    
+    border-bottom: 3px solid var(--blue);
+    transition: opacity 0.25s ease-out;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+/* Mobile version */
+@media only screen and (max-width: 600px) {
+    .button {
+        color: white;
+        font-size: 17px;
+        font-weight: 600;
+        background-color: var(--black);
+        padding: 12px 20px 11px 19px;
+        letter-spacing: .5px;
+        border-radius: 5px;
+    
+        display: inline-block;
+        
+        border-bottom: 3px solid var(--blue);
+        transition: opacity 0.25s ease-out;
+    
+        cursor: pointer;
+    }
+}

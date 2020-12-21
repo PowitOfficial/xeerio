@@ -1,0 +1,377 @@
+/* Colors */
+@import url("colors.css");
+
+.container {
+    animation: fadeIn 0.3s ease forwards;
+ }
+
+ @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+ .container {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    min-height: calc(90vh - 250px);
+
+    margin-top: 10vh;
+    padding-bottom: 150px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+p .name {
+    font-weight: 600;
+    color: var(--black);
+    border-bottom: 2px solid var(--blue);
+    text-transform: capitalize;
+}
+
+ .domainCard {
+     padding: 35px 60px 55px 60px;
+     display: block;
+     background-color: var(--blue);
+     border-radius: 10px;
+     box-shadow: 0px 8px 15px rgba(108, 113, 249, 0.3);
+
+     margin-top: 50px;
+     width: 400px;
+     max-width: 400px;
+ }
+
+ .socialmediaCard {
+    padding: 35px 60px 55px 60px;
+    display: block;
+    /* background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(48, 48, 64, 0.15); */
+
+    margin-top: 25px;
+    width: 400px;
+    max-width: 400px;
+ }
+
+ .socialmediaCard h3 {
+     color: var(--black);
+ }
+
+ .domainCard p {
+     color: rgba(255, 255, 255, 0.4);
+ }
+
+ .domainCard .domains {
+     width: 100%;
+     height: 105px;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+
+     margin-top: 15px;
+ }
+
+ .socialmediaCard .socialmedia {
+    width: 100%;
+    height: 105px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin-top: 15px;
+ }
+
+.domain {
+    font-weight: 600;
+    width: 85px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.account {
+    font-weight: 600;
+    width: 175px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    margin-top: 15px;
+
+    text-transform: capitalize;
+}
+
+.domain.available {
+    color: var(--blue);
+    background: white;
+    box-shadow: 0px 3px 6px rgba(48, 48, 64, 0.15);
+    cursor: pointer;
+}
+
+.facebook, .instagram, .youtube, .twitter, .tumblr, .pinterest {
+    color: white;
+    box-shadow: 0px 3px 6px rgba(48, 48, 64, 0.15);
+    cursor: pointer;
+}
+
+.facebook {
+    background-color: #3E5B95;
+}
+
+.instagram {
+    background-color: #FF903E;
+}
+
+.youtube {
+    background-color: #F2361F;
+}
+
+.twitter {
+    background-color: #61ACEA;
+}
+
+.tumblr {
+    background-color: #34526f;
+}
+
+.pinterest {
+    background-color: #DA302D;
+}
+
+.domain.unavailable {
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(48, 48, 64, 0.1);
+    box-shadow: none;
+
+    cursor: not-allowed;
+}
+
+.account.unavailable {
+    color: rgba(48, 48, 64, 0.5);
+    background: rgba(48, 48, 64, 0.075);
+    box-shadow: none;
+
+    cursor: not-allowed;
+}
+
+ .domain.loading {
+    color: white;
+    background: rgba(48, 48, 64, 0.1);
+    box-shadow: none;
+
+    animation: loading 2.25s ease-out infinite;
+ }
+
+ .domain.loading:nth-child(1) { animation-delay: .25s }
+ .domain.loading:nth-child(2) { animation-delay: 0.5s }
+ .domain.loading:nth-child(3) { animation-delay: 1s }
+ .domain.loading:nth-child(4) { animation-delay: 1.25s }
+ .domain.loading:nth-child(5) { animation-delay: 1.5s }
+ .domain.loading:nth-child(6) { animation-delay: 1.75s }
+ .domain.loading:nth-child(7) { animation-delay: 2s }
+ .domain.loading:nth-child(8) { animation-delay: 2.25s }
+
+ @keyframes loading {
+     0% {
+         opacity: 1;
+     }
+     20% {
+         opacity: 0.25;
+     }
+     40% {
+         opacity: 1;
+     }
+ }
+
+ /* Register card */
+.registerCard {
+    position: absolute;
+    bottom: 0;
+    max-width: 800px;
+    width: 75vw;
+    height: 100px;
+    display: inline-block;
+    left: 0; 
+    right: 0; 
+    margin-top: 100px;
+    margin-left: auto; 
+    margin-right: auto; 
+    justify-content: space-between;
+    align-content: center;
+
+    display: flex;
+    background-color: #ECECED;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.registerCard .content, .registerCard .actions {
+    align-self: center;
+}
+
+.registerCard .content {
+    margin-left: 50px;
+}
+
+.registerCard .subtitle {
+    color: var(--blue);
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.registerCard .title {
+    color: var(--black);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.registerCard .actions {
+    margin-right: 50px;
+}
+
+ /* Mobile version */
+ @media only screen and (max-width: 600px) {
+    .container {
+        margin-top: 5vh;
+        padding-bottom: 250px;
+    }
+
+    /* Cards */
+    .domainCard {
+        padding: 25px 30px 35px 30px;
+        display: block;
+        background-color: var(--blue);
+        border-radius: 10px;
+        box-shadow: 0px 8px 15px rgba(108, 113, 249, 0.3);
+   
+        margin-top: 40px;
+        margin-left: -4vw;
+        margin-right: -4vw;
+        width: 400px;
+        max-width: 400px;
+    }
+   
+    .socialmediaCard {
+       padding: 25px 30px 35px 30px;
+       display: block;
+       /* background-color: white;
+       border-radius: 10px;
+       box-shadow: 0px 8px 15px rgba(48, 48, 64, 0.15); */
+   
+       margin-top: 25px;
+       margin-left: -4vw;
+       margin-right: -4vw;
+       width: 400px;
+       max-width: 400px;
+    }
+
+    /* Cards Content */
+    .domainCard .domains {
+        width: 100%;
+        height: 185px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+   
+        margin-top: 10px;
+    }
+   
+    .socialmediaCard .socialmedia {
+       width: 100%;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+   
+       margin-top: 10px;
+    }
+   
+   .domain {
+       font-weight: 600;
+       width: 80px;
+       height: 42.5px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   
+       border-radius: 5px;
+       margin-top: 15px;
+       margin-right: 4vw;
+   }
+   
+   .account {
+       font-weight: 600;
+       width: 125px;
+       height: 50px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   
+       border-radius: 5px;
+       margin-top: 15px;
+   
+       text-transform: capitalize;
+   }
+
+   /* Register card */
+.registerCard {
+    position: absolute;
+    bottom: 0;
+    max-width: 800px;
+    width: 85vw;
+    height: 150px;
+    left: 0; 
+    right: 0; 
+    margin-top: 100px;
+
+    display: grid;
+    align-content: center;
+    flex-direction: column;
+    background-color: #ECECED;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.registerCard .content, .registerCard .actions {
+    align-self: center;
+}
+
+.registerCard .content {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.registerCard .subtitle {
+    color: var(--blue);
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.registerCard .title {
+    color: var(--black);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.registerCard .actions {
+    margin-left: 25px;
+}
+}

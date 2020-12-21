@@ -1,0 +1,59 @@
+/* Colors */
+@import url("colors.css");
+
+.container {
+    animation: fadeIn 0.3s ease forwards;
+ }
+ 
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+     }
+     to {
+         opacity: 1;
+     }
+ }
+
+.container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 20vh 5vw 0vh 5vw;
+   text-align: center;
+}
+
+h1 {
+   margin-bottom: 20px;
+}
+
+.container p {
+   line-height: 30px;
+   margin-bottom: 55px;
+   max-width: 800px;
+}
+
+.bold {
+    font-weight: 600;
+    color: rgba(48, 48, 64, 0.7);
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 7.5vh 5vw 0vh 5vw;
+        text-align: left;
+     }
+
+     .container p {
+         line-height: 25px;
+     }
+
+     .bold {
+         font-weight: normal;
+         color: var(--paragraph);
+     }
+}
