@@ -22,7 +22,7 @@ app.prepare()
             // Get the local domain extension of the user from their ip address
             async function getLocalExtension() {
                 // Get the public ip
-                var ipAddress = req.ip;
+                var ipAddress = await publicIp.v4();
 
                 console.log(ipAddress);
 
@@ -310,7 +310,7 @@ app.prepare()
 
         server.listen(8080, (err) => {
             if (err) throw err
-            console.log('> Ready on http://localhost:3000')
+            console.log('> Ready on http://localhost:8080')
         })
     })
     .catch((ex) => {
