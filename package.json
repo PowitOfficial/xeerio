@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "dev": "node ssr-server.js",
-        "build": "next build"
+        "build": "next build",
+        "start": "next start -H 0.0.0.0 -p ${PORT:-8080}"
     },
     "author": "",
     "license": "ISC",
