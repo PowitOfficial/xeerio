@@ -8,7 +8,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 const Dashboard = ({ query, domainExtensions, localDomainExtension, socialMedia }) => {
 
-    var url = "http://xeerio.com/checkDomains?name=" + query.name + "&domain=" + localDomainExtension;
+    var url = "https://xeerio.com/checkDomains?name=" + query.name + "&domain=" + localDomainExtension;
     const { data, error } = useSWR(url, fetcher)
 
     function arrayDiff(a1, a2) {
@@ -163,9 +163,7 @@ const Dashboard = ({ query, domainExtensions, localDomainExtension, socialMedia 
 Dashboard.getInitialProps = async ({ query }) => {
     var domainExtensions = ["com", "net", "io", "shop", "org", "co", "me"];
     var socialMedia = ["facebook", "instagram", "youtube", "twitter", "tumblr", "pinterest"];
-    var localDomainExtension = await fetch("http://ip-api.com/json")
-    localDomainExtension = await localDomainExtension.json()
-    localDomainExtension = await localDomainExtension.countryCode.toLowerCase();
+    var localDomainExtension = "be";
     domainExtensions.push(localDomainExtension)
     console.log(localDomainExtension);
     return { query, domainExtensions, localDomainExtension, socialMedia }
