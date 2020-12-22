@@ -8,7 +8,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 const Dashboard = ({ query, domainExtensions, localDomainExtension, socialMedia }) => {
 
-    var url = "http://localhost:3000/checkDomains?name=" + query.name + "&domain=" + localDomainExtension;
+    var url = "http://localhost:8080/checkDomains?name=" + query.name + "&domain=" + localDomainExtension;
     const { data, error } = useSWR(url, fetcher)
 
     function arrayDiff(a1, a2) {
