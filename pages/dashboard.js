@@ -163,7 +163,7 @@ const Dashboard = ({ query, domainExtensions, localDomainExtension, socialMedia 
 Dashboard.getInitialProps = async ({ query }) => {
     var domainExtensions = ["com", "net", "io", "shop", "org", "co", "me"];
     var socialMedia = ["facebook", "instagram", "youtube", "twitter", "tumblr", "pinterest"];
-    var localDomainExtension = await fetch("http://localhost:3000/getLocalExtension")
+    var localDomainExtension = await fetch("http://localhost:8080/getLocalExtension")
     localDomainExtension = await localDomainExtension.json()
     domainExtensions.push(localDomainExtension)
     console.log(localDomainExtension);
