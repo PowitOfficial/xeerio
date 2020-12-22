@@ -1,5 +1,5 @@
 import "../static/components/navBar.css";
-import Link from "./link";
+import Link from "./Link";
 import React, { useState } from 'react'
 
 const NavBar = props => {
