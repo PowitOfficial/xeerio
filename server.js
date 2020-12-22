@@ -21,7 +21,11 @@ app.prepare()
             // Get the local domain extension of the user from their ip address
             async function getLocalExtension() {
                 // Get the public ip
-                var ipAddress = await publicIp.v4();
+                var ipAddress = (req.headers['x-forwarded-for'] || '').split(',').pop().trim() ||
+                    req.connection.remoteAddress ||
+                    req.socket.remoteAddress ||
+                    req.connection.socket.remoteAddress;
+                console.log(ipAddress);
 
                 // Get the country code
                 var countryCode = geoip.lookup(ipAddress).country;
