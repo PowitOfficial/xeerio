@@ -4,9 +4,9 @@
     "description": "Check the availability of your idea, upcoming product or company in terms of domain names, social media, trademarks and check the strength and originality of your name in mind.",
     "main": "index.js",
     "scripts": {
-        "dev": "node ssr-server.js",
+        "dev": "node server.js",
         "build": "next build",
-        "start": "next start -H 0.0.0.0 -p ${PORT:-8080}"
+        "start": "NODE_ENV=production node server.js"
     },
     "author": "",
     "license": "ISC",
