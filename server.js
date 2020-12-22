@@ -25,6 +25,8 @@ app.prepare()
                     req.connection.remoteAddress ||
                     req.socket.remoteAddress ||
                     req.connection.socket.remoteAddress;
+                console.log(req.headers["x-forwarded-for"]);
+
                 console.log(ipAddress);
 
                 // Get the country code
