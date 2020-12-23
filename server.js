@@ -163,6 +163,7 @@ app.prepare()
             }, async (err, response) => {
                 // Handle the error
                 if (err) throw err;
+                console.log(response);
 
                 // Get the available usernames on all social media platforms
                 var getUsernames = await getSocialMedia(response);
