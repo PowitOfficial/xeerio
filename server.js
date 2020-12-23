@@ -22,7 +22,7 @@ app.prepare()
             // Get the local domain extension of the user from their ip address
             async function getLocalExtension() {
                 // Get the public ip
-                console.log(req.headers('x-forwarded-for'));
+                console.log(req.headers['x-forwarded-for']);
                 var ipAddress = await publicIp.v4();
 
                 console.log(ipAddress);
