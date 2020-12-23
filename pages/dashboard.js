@@ -160,11 +160,11 @@ const Dashboard = ({ query, domainExtensions, localDomainExtension, socialMedia 
 }
 
 
-Dashboard.getInitialProps = async ({ query }) => {
+Dashboard.getInitialProps = async (content) => {
     var domainExtensions = ["com", "net", "io", "shop", "org", "co", "me"];
     var socialMedia = ["facebook", "instagram", "youtube", "twitter", "tumblr", "pinterest"];
-    var localDomainExtension = await fetch("https://xeerio.com/getLocalExtension")
-    localDomainExtension = await localDomainExtension.json()
+    var query = content.query;
+    var localDomainExtension = content.req.localDomainExtension;
     domainExtensions.push(localDomainExtension)
     console.log(localDomainExtension);
     return { query, domainExtensions, localDomainExtension, socialMedia }

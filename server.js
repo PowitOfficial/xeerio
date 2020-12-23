@@ -18,16 +18,40 @@ app.prepare()
 
         server.use(bodyParser.json())
 
+        // Dashboard prepare
+        server.get("/dashboard", async (req, res) => {
+            // Get the local domain extension of the user from their ip address
+            async function getLocalExtension() {
+                // Get the public ip
+                console.log(req.ip);
+                var ipAddress = req.ip;
+
+                // Get the country code
+                var countryCode = geoip.lookup(ipAddress).country;
+                console.log("Found country code: " + countryCode + " From ip address: " + ipAddress);
+
+                return countryCode;
+            }
+
+            var domain = await getLocalExtension()
+            domain = domain.toLowerCase()
+            app.render(
+                {
+                    ...req,
+                    localDomainExtension: domain
+                },
+                res,
+                '/dashboard',
+                req.query
+            )
+        })
+
         server.get("/getLocalExtension", async (req, res) => {
             // Get the local domain extension of the user from their ip address
             async function getLocalExtension() {
                 // Get the public ip
-                console.log(req.headers['X-Forwarded-For']);
-                console.log(req.headers['X-Real-IP']);
                 console.log(req.ip);
-                var ipAddress = await publicIp.v4();
-
-                console.log(ipAddress);
+                var ipAddress = req.ip;
 
                 // Get the country code
                 var countryCode = geoip.lookup(ipAddress).country;
