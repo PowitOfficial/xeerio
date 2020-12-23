@@ -46,23 +46,23 @@ app.prepare()
             )
         })
 
-        server.get("/getLocalExtension", async (req, res) => {
-            // Get the local domain extension of the user from their ip address
-            async function getLocalExtension() {
-                // Get the public ip
-                console.log(req.ip);
-                var ipAddress = req.ip;
+        // server.get("/getLocalExtension", async (req, res) => {
+        //     // Get the local domain extension of the user from their ip address
+        //     async function getLocalExtension() {
+        //         // Get the public ip
+        //         console.log(req.ip);
+        //         var ipAddress = req.ip;
 
-                // Get the country code
-                var countryCode = geoip.lookup(ipAddress).country;
-                console.log("Found country code: " + countryCode + " From ip address: " + ipAddress);
+        //         // Get the country code
+        //         var countryCode = geoip.lookup(ipAddress).country;
+        //         console.log("Found country code: " + countryCode + " From ip address: " + ipAddress);
 
-                return countryCode;
-            }
-            var domain = await getLocalExtension()
-            domain = domain.toLowerCase()
-            res.json(domain)
-        })
+        //         return countryCode;
+        //     }
+        //     var domain = await getLocalExtension()
+        //     domain = domain.toLowerCase()
+        //     res.json(domain)
+        // })
 
         server.get("/checkDomains", async (req, res) => {
 
@@ -176,112 +176,112 @@ app.prepare()
             res.json({ domains: domains, usernames: usernames });
         })
 
-        server.post("/checkDomains", async (req, res) => {
-            // Get the local domain extension of the user from their ip address
-            async function getLocalExtension() {
-                // Get the public ip
-                var ipAddress = await publicIp.v4();
+        // server.post("/checkDomains", async (req, res) => {
+        //     // Get the local domain extension of the user from their ip address
+        //     async function getLocalExtension() {
+        //         // Get the public ip
+        //         var ipAddress = await publicIp.v4();
 
-                // Get the country code
-                var countryCode = geoip.lookup(ipAddress).country;
-                console.log("Found country code: " + countryCode + " From ip address: " + ipAddress);
+        //         // Get the country code
+        //         var countryCode = geoip.lookup(ipAddress).country;
+        //         console.log("Found country code: " + countryCode + " From ip address: " + ipAddress);
 
-                return countryCode;
-            }
+        //         return countryCode;
+        //     }
 
-            // Function to check for available domain names
-            async function checkDomainNames(domainExtensions, name) {
-                var availableDomains = [];
+        //     // Function to check for available domain names
+        //     async function checkDomainNames(domainExtensions, name) {
+        //         var availableDomains = [];
 
-                for (var domain of domainExtensions) {
-                    var url = name + "." + domain;
+        //         for (var domain of domainExtensions) {
+        //             var url = name + "." + domain;
 
-                    // Check domain name
-                    let domainLookup = await whoiser(url);
+        //             // Check domain name
+        //             let domainLookup = await whoiser(url);
 
-                    domainLookup = domainLookup[Object.keys(domainLookup)[0]];
-                    domainLookup = domainLookup[Object.keys(domainLookup)[0]];
+        //             domainLookup = domainLookup[Object.keys(domainLookup)[0]];
+        //             domainLookup = domainLookup[Object.keys(domainLookup)[0]];
 
-                    if (domainLookup.length == 0 || domainLookup[0] === "AVAILABLE") {
-                        // Domain is available
-                        console.log("www." + name + "." + domain + ": is available!");
-                        availableDomains.push(domain);
-                    } else {
-                        // Domain is unavailable
-                        console.log("www." + name + "." + domain + ": is UNavailable!");
-                    }
-                };
+        //             if (domainLookup.length == 0 || domainLookup[0] === "AVAILABLE") {
+        //                 // Domain is available
+        //                 console.log("www." + name + "." + domain + ": is available!");
+        //                 availableDomains.push(domain);
+        //             } else {
+        //                 // Domain is unavailable
+        //                 console.log("www." + name + "." + domain + ": is UNavailable!");
+        //             }
+        //         };
 
-                return availableDomains;
-            }
+        //         return availableDomains;
+        //     }
 
-            // Function to check for available usernames
-            async function getSocialMedia(response) {
-                var availableUsernames = [];
+        //     // Function to check for available usernames
+        //     async function getSocialMedia(response) {
+        //         var availableUsernames = [];
 
-                const getHostname = (url) => {
-                    // use URL constructor and return hostname
-                    return new URL(url).hostname;
-                }
+        //         const getHostname = (url) => {
+        //             // use URL constructor and return hostname
+        //             return new URL(url).hostname;
+        //         }
 
-                for (var username of response) {
-                    // Get the error response
-                    var error = username.error;
+        //         for (var username of response) {
+        //             // Get the error response
+        //             var error = username.error;
 
-                    if (error === false) {
-                        // availableUsernames.push(username);
-                        console.log("This is false: " + username.address);
-                    } else if (error.status == 200) {
-                        // availableUsernames.push(username);
-                        console.log("This is status 200: " + username.address);
-                    } else {
-                        // Get address of available username
-                        var address = username.address;
-                        // Get the hostname
-                        var hostname = getHostname(address);
-                        // Push it to the array
-                        availableUsernames.push(hostname);
-                    }
-                }
+        //             if (error === false) {
+        //                 // availableUsernames.push(username);
+        //                 console.log("This is false: " + username.address);
+        //             } else if (error.status == 200) {
+        //                 // availableUsernames.push(username);
+        //                 console.log("This is status 200: " + username.address);
+        //             } else {
+        //                 // Get address of available username
+        //                 var address = username.address;
+        //                 // Get the hostname
+        //                 var hostname = getHostname(address);
+        //                 // Push it to the array
+        //                 availableUsernames.push(hostname);
+        //             }
+        //         }
 
-                return availableUsernames
-            }
+        //         return availableUsernames
+        //     }
 
-            // Get name from form
-            const name = req.body.name;
-            console.log(name);
-            var domainExtensions = ["com", "net", "io", "shop", "org", "co", "me"];
-            console.log(name);
+        //     // Get name from form
+        //     const name = req.body.name;
+        //     console.log(name);
+        //     var domainExtensions = ["com", "net", "io", "shop", "org", "co", "me"];
+        //     console.log(name);
 
-            // Check domain names
+        //     // Check domain names
 
-            // Get the local domain extension
-            var localExtension = await getLocalExtension();
-            localExtension = localExtension.toLowerCase();
+        //     // Get the local domain extension
+        //     var localExtension = await getLocalExtension();
+        //     localExtension = localExtension.toLowerCase();
 
-            console.log(localExtension);
-            // Add the local domain extension to the domain array
-            domainExtensions.push(localExtension);
+        //     console.log(localExtension);
+        //     // Add the local domain extension to the domain array
+        //     domainExtensions.push(localExtension);
 
-            var usernames = []
+        //     var usernames = []
 
-            // Check social media
-            socialScanner(name, {
-                restrict: ["facebook", "instagram", "youtube", "twitter", "tumblr", "pinterest"]
-            }, async (err, response) => {
-                // Handle the error
-                if (err) throw err;
+        //     // Check social media
+        //     socialScanner(name, {
+        //         restrict: ["facebook", "instagram", "youtube", "twitter", "tumblr", "pinterest"]
+        //     }, async (err, response) => {
+        //         // Handle the error
+        //         if (err) throw err;
 
-                // Get the available usernames on all social media platforms
-                var getUsernames = await getSocialMedia(response);
-                usernames = getUsernames
-            });
+        //         // Get the available usernames on all social media platforms
+        //         var getUsernames = await getSocialMedia(response);
+        //         usernames = getUsernames
+        //     });
 
-            // Get the available domain names
-            var domains = await checkDomainNames(domainExtensions, name);
-            console.log(domains);
-            res.json({ domains, usernames });
-        })
+        //     // Get the available domain names
+        //     var domains = await checkDomainNames(domainExtensions, name);
+        //     console.log(domains);
+        //     res.json({ domains, usernames });
+        // })
 
         server.get("/checkSocialMedia", async (req, res) => {
             // Function to check for available usernames
