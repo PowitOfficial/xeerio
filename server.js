@@ -23,6 +23,7 @@ app.prepare()
             async function getLocalExtension() {
                 // Get the public ip
                 console.log(req.headers['x-forwarded-for']);
+                console.log(req.ip);
                 var ipAddress = await publicIp.v4();
 
                 console.log(ipAddress);
