@@ -29,7 +29,9 @@ app.prepare()
                 // Get the country code
                 var countryCode = geoip.lookup(ipAddress).country;
                 console.log("Found country code: " + countryCode + " From ip address: " + ipAddress);
-
+                if (countryCode == "gb") {
+                    countryCode = "co.uk";
+                }
                 return countryCode;
             }
 
