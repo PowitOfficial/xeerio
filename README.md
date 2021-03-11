@@ -10,6 +10,6 @@ Xeerio is an innovative web app written in **Nextjs** to boost your productivity
 ## A web app designed for your privacy
 We refuse to use any third-party implementations that might invade our customers’ privacy. Everything you do on the website is **anonymously** logged and won’t be shared with anyone/anything.
 
-This web app doesn’t make use of **coockies** and none of your information is been stored or captured.
+This web app doesn’t make use of **cookies** and none of your information is been stored or captured.
 
 
