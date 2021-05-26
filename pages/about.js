@@ -22,6 +22,13 @@ const About = () => {
                     type="image/x-icon"
                     href="/static/favicon.ico"
                 />
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-YP7TCN9ZEX"></script>
+                <script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments)}
+                    gtag('js', new Date());
+                    gtag('config', 'G-YP7TCN9ZEX');
+                </script>
             </Head>
             <NavBar />
             <div className="container">

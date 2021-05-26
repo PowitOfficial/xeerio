@@ -111,7 +111,6 @@ app.prepare()
                         // availableUsernames.push(username);
                         console.log("This is false: " + username.address);
                     } else if (error.status == 200) {
-                        // availableUsernames.push(username);
                         console.log("This is status 200: " + username.address);
                     } else {
                         // Get address of available username
