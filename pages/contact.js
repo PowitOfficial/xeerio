@@ -22,13 +22,23 @@ const Contact = () => {
                     type="image/x-icon"
                     href="/static/favicon.ico"
                 />
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-YP7TCN9ZEX"></script>
-                <script>
+                {/* Global Site Tag (gtag.js) - Google Analytics */}
+                <script
+                    async
+                    src={`https://www.googletagmanager.com/gtag/js?id=G-YP7TCN9ZEX`}
+                />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
                     window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments)}
+                    function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
-                    gtag('config', 'G-YP7TCN9ZEX');
-                </script>
+                    gtag('config', 'G-YP7TCN9ZEX', {
+                    page_path: window.location.pathname,
+                    });
+                `,
+                    }}
+                />
             </Head>
             <NavBar />
             <div className="container">
